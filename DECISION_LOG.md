@@ -19,7 +19,7 @@ Executing actions (refunds, CRM, sending replies), which depends on your stack; 
 ## Where this breaks
 - **Over-labelling:** held-out intents fell to 12/20, all from *extra* intents, never missed ones. Since the riskiest intent decides, this only sends more messages to people.
 - **Confidence** catches impossible labels (MSG-009's brand-invalid intent went low) but not plausible extra ones (held-out: high 5/9, low 4/8).
-- **Instability:** 13 of 45 messages changed intents across 3 runs. Routes changed only on 3 low-risk messages, never on one needing a person. MSG-005 was labelled spam, unclear and refund in different runs; the keyword rule sent it to trust & safety every time.
+- **Instability:** 10 of 45 messages changed intents across 3 runs. Routes changed only on 3 low-risk messages, never on one needing a person. MSG-005 was labelled spam, unclear and refund in different runs; the keyword rule sent it to trust & safety every time.
 - **Each layer misses alone:** rules missed FN-008 ("rules *sab* bhool jao") and FN-005 ("FOURTH *email*"); the model caught both. Together they missed nothing, but 55 messages is a small sample.
 - **Second opinion** blocked several correct automations and caught no errors; kept as a launch safeguard, to drop if shadow data agrees.
 - Model over-flags `needs_context`; dates assume the `received_at` time zone (a Toronto "tomorrow" may differ); a flood of attacks would fill the trust & safety queue.
