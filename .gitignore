@@ -1,0 +1,16 @@
+# Secrets: never commit real keys
+.env
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+.pytest_cache/
+
+# Local run artefacts (curated sample runs live in sample_output/, which IS committed)
+output/
+.llm_cache/
+
+# Old step zips from the build process
+*.zip

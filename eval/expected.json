@@ -1,0 +1,374 @@
+{
+  "_about": "PROPOSED answers for the original 25, for the candidate to review and own. Same format as expected_heldout.json. acceptable_* lists hold other answers a careful person could defend.",
+  "MSG-001": {
+    "intents": [
+      "order_status"
+    ],
+    "route": "auto",
+    "queue": "support",
+    "priority": "P3",
+    "must_flags": [],
+    "note": "Tracking lookup; order ID present."
+  },
+  "MSG-002": {
+    "intents": [
+      "cancel_subscription"
+    ],
+    "route": "human",
+    "queue": "billing",
+    "priority": "P3",
+    "must_flags": [],
+    "note": "Stops a paid subscription: money, retention."
+  },
+  "MSG-003": {
+    "intents": [
+      "service_or_price_question"
+    ],
+    "route": "auto",
+    "queue": "support",
+    "priority": "P3",
+    "must_flags": [],
+    "note": "Price/service question gets the KB template. If the model also reads a booking request, a person is fine too.",
+    "acceptable_routes": [
+      "auto",
+      "human"
+    ],
+    "acceptable_intents": [
+      [
+        "service_or_price_question",
+        "book_appointment"
+      ]
+    ],
+    "acceptable_queues": [
+      "support",
+      "bookings"
+    ]
+  },
+  "MSG-004": {
+    "intents": [
+      "booking_change"
+    ],
+    "route": "human",
+    "queue": "consultants",
+    "priority": "P3",
+    "must_flags": [],
+    "note": "Change fee depends on the airline: T3.",
+    "acceptable_intents": [
+      [
+        "booking_change",
+        "booking_question"
+      ]
+    ]
+  },
+  "MSG-005": {
+    "intents": [
+      "refund_request"
+    ],
+    "route": "human",
+    "queue": "trust_safety",
+    "priority": "P2",
+    "must_flags": [
+      "suspected_injection"
+    ],
+    "note": "Injection: one owning queue, no acknowledgement.",
+    "acceptable_intents": [
+      [
+        "refund_request",
+        "unclear"
+      ]
+    ]
+  },
+  "MSG-006": {
+    "intents": [
+      "reschedule_appointment",
+      "service_or_price_question"
+    ],
+    "route": "human",
+    "queue": "bookings",
+    "priority": "P3",
+    "must_flags": [
+      "code_mixed"
+    ],
+    "note": "Hinglish; reschedule is T2. code_mixed required: mixed language is what the flag exists for.",
+    "acceptable_priorities": [
+      "P3",
+      "P2"
+    ]
+  },
+  "MSG-007": {
+    "intents": [
+      "unclear"
+    ],
+    "route": "human",
+    "queue": "support",
+    "priority": "P3",
+    "must_flags": [
+      "empty_or_non_text"
+    ],
+    "note": "Only a phone number."
+  },
+  "MSG-008": {
+    "intents": [
+      "refund_request",
+      "new_order"
+    ],
+    "route": "human",
+    "queue": "billing",
+    "priority": "P3",
+    "must_flags": [],
+    "note": "Refund (T3) owns it; the new order is a linked request.",
+    "acceptable_intents": [
+      [
+        "refund_request",
+        "new_order",
+        "wrong_or_damaged_item"
+      ],
+      [
+        "wrong_or_damaged_item",
+        "new_order"
+      ]
+    ],
+    "acceptable_queues": [
+      "billing",
+      "support"
+    ]
+  },
+  "MSG-009": {
+    "intents": [
+      "new_trip_inquiry"
+    ],
+    "route": "human",
+    "queue": "consultants",
+    "priority": "P3",
+    "must_flags": [
+      "accessibility_need"
+    ],
+    "note": "Sales lead with wheelchair and elderly travellers."
+  },
+  "MSG-010": {
+    "intents": [
+      "positive_feedback"
+    ],
+    "route": "auto",
+    "queue": "support",
+    "priority": "P3",
+    "must_flags": [],
+    "note": "Thank-you template; mention of Priya passed to the team."
+  },
+  "MSG-011": {
+    "intents": [
+      "billing_dispute"
+    ],
+    "route": "human",
+    "queue": "billing",
+    "priority": "P2",
+    "must_flags": [
+      "repeat_contact",
+      "chargeback_or_legal_threat"
+    ],
+    "note": "Double charge, third contact, bank threat.",
+    "acceptable_intents": [
+      [
+        "billing_dispute",
+        "refund_request"
+      ],
+      [
+        "billing_dispute",
+        "complaint"
+      ],
+      [
+        "billing_dispute",
+        "complaint",
+        "refund_request"
+      ]
+    ]
+  },
+  "MSG-012": {
+    "intents": [
+      "unclear"
+    ],
+    "route": "human",
+    "queue": "support",
+    "priority": "P3",
+    "must_flags": [
+      "needs_context"
+    ],
+    "note": "Meaningless without the earlier conversation.",
+    "acceptable_queues": [
+      "support",
+      "consultants"
+    ]
+  },
+  "MSG-013": {
+    "intents": [
+      "wholesale_inquiry"
+    ],
+    "route": "auto",
+    "queue": "sales",
+    "priority": "P3",
+    "must_flags": [],
+    "note": "Forward to sales."
+  },
+  "MSG-014": {
+    "intents": [
+      "reschedule_appointment",
+      "book_appointment",
+      "membership_question"
+    ],
+    "route": "human",
+    "queue": "bookings",
+    "priority": "P3",
+    "must_flags": [],
+    "note": "Three requests; booking changes are T2.",
+    "acceptable_priorities": [
+      "P3",
+      "P2"
+    ]
+  },
+  "MSG-015": {
+    "intents": [
+      "wrong_or_damaged_item"
+    ],
+    "route": "human",
+    "queue": "support",
+    "priority": "P3",
+    "must_flags": [],
+    "note": "Replacement costs money: T3."
+  },
+  "MSG-016": {
+    "intents": [
+      "travel_disruption"
+    ],
+    "route": "human",
+    "queue": "emergency_desk",
+    "priority": "P1",
+    "must_flags": [
+      "urgent"
+    ],
+    "note": "Stranded with an elderly passenger."
+  },
+  "MSG-017": {
+    "intents": [
+      "marketing_unsubscribe"
+    ],
+    "route": "human",
+    "queue": "support",
+    "priority": "P3",
+    "must_flags": [],
+    "note": "Ambiguous: mailing list or paid subscription? A person checks (see clarifying question #3).",
+    "acceptable_intents": [
+      [
+        "cancel_subscription"
+      ],
+      [
+        "unclear"
+      ],
+      [
+        "marketing_unsubscribe",
+        "cancel_subscription"
+      ]
+    ],
+    "acceptable_queues": [
+      "support",
+      "billing"
+    ]
+  },
+  "MSG-018": {
+    "intents": [
+      "business_info"
+    ],
+    "route": "auto",
+    "queue": "support",
+    "priority": "P3",
+    "must_flags": [],
+    "note": "Opening-hours template filled from the brand's KB."
+  },
+  "MSG-019": {
+    "intents": [
+      "health_or_safety_question"
+    ],
+    "route": "human",
+    "queue": "specialist",
+    "priority": "P2",
+    "must_flags": [
+      "health_risk"
+    ],
+    "note": "Never automated, no AI draft."
+  },
+  "MSG-020": {
+    "intents": [
+      "quote_followup_payment"
+    ],
+    "route": "human",
+    "queue": "consultants",
+    "priority": "P3",
+    "must_flags": [
+      "needs_context"
+    ],
+    "note": "Hot sales lead; needs the earlier quote. P2 also fine: a ready-to-pay lead can be lost in 24h.",
+    "acceptable_priorities": [
+      "P3",
+      "P2"
+    ]
+  },
+  "MSG-021": {
+    "intents": [
+      "vendor_invoice"
+    ],
+    "route": "human",
+    "queue": "finance",
+    "priority": "P2",
+    "must_flags": [
+      "possible_fraud"
+    ],
+    "note": "Bank details in a PDF that is not attached."
+  },
+  "MSG-022": {
+    "intents": [
+      "cancel_appointment"
+    ],
+    "route": "human",
+    "queue": "bookings",
+    "priority": "P2",
+    "must_flags": [],
+    "note": "Implicit cancellation for tomorrow.",
+    "acceptable_intents": [
+      [
+        "cancel_appointment",
+        "reschedule_appointment"
+      ]
+    ]
+  },
+  "MSG-023": {
+    "intents": [
+      "positive_feedback"
+    ],
+    "route": "auto",
+    "queue": "support",
+    "priority": "P3",
+    "must_flags": [],
+    "note": "Thank-you template."
+  },
+  "MSG-024": {
+    "intents": [
+      "job_application"
+    ],
+    "route": "auto",
+    "queue": "hr",
+    "priority": "P3",
+    "must_flags": [],
+    "note": "Forward to HR."
+  },
+  "MSG-025": {
+    "intents": [
+      "unclear"
+    ],
+    "route": "human",
+    "queue": "support",
+    "priority": "P3",
+    "must_flags": [
+      "empty_or_non_text"
+    ],
+    "note": "Null text: probably a voice note or image."
+  }
+}

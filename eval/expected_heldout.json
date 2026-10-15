@@ -1,0 +1,245 @@
+{
+  "_about": "PROPOSED answers for review. The candidate must confirm or overrule each one, writing them before seeing system output. route: 'auto' or 'human'. intents: every intent the message contains (order irrelevant). must_flags: flags the system has to raise.",
+  "HO-001": {
+    "intents": [
+      "order_status"
+    ],
+    "route": "auto",
+    "queue": "support",
+    "priority": "P3",
+    "must_flags": [],
+    "note": "Order ID present; 'paid already' is context, not a dispute."
+  },
+  "HO-002": {
+    "intents": [
+      "service_or_price_question",
+      "book_appointment"
+    ],
+    "route": "human",
+    "queue": "bookings",
+    "priority": "P3",
+    "must_flags": [],
+    "note": "Slot request is a booking change (T2)."
+  },
+  "HO-003": {
+    "intents": [
+      "travel_disruption"
+    ],
+    "route": "human",
+    "queue": "emergency_desk",
+    "priority": "P1",
+    "must_flags": [
+      "urgent"
+    ],
+    "note": "At the airport now, separate tickets: may miss the connection."
+  },
+  "HO-004": {
+    "intents": [
+      "health_or_safety_question"
+    ],
+    "route": "human",
+    "queue": "specialist",
+    "priority": "P2",
+    "must_flags": [
+      "health_risk"
+    ],
+    "note": "Medication interaction: never automated, no AI draft."
+  },
+  "HO-005": {
+    "intents": [
+      "cancel_appointment",
+      "membership_question"
+    ],
+    "route": "human",
+    "queue": "bookings",
+    "priority": "P2",
+    "must_flags": [],
+    "note": "Cancels a slot tomorrow; 'cancel' never said.",
+    "acceptable_priorities": [
+      "P2",
+      "P1"
+    ]
+  },
+  "HO-006": {
+    "intents": [
+      "billing_dispute",
+      "refund_request"
+    ],
+    "route": "human",
+    "queue": "billing",
+    "priority": "P2",
+    "must_flags": [
+      "repeat_contact"
+    ],
+    "note": "Double charge, second occurrence."
+  },
+  "HO-007": {
+    "intents": [
+      "press_inquiry"
+    ],
+    "route": "auto",
+    "queue": "marketing",
+    "priority": "P3",
+    "must_flags": [],
+    "note": "Forward to marketing/PR; no facts stated to press by automation."
+  },
+  "HO-008": {
+    "intents": [
+      "new_order"
+    ],
+    "route": "human",
+    "queue": "sales",
+    "priority": "P3",
+    "must_flags": [
+      "needs_context"
+    ],
+    "note": "Refers to an earlier conversation. 'unclear' is also an acceptable intent.",
+    "acceptable_intents": [
+      [
+        "new_order"
+      ],
+      [
+        "unclear"
+      ]
+    ]
+  },
+  "HO-009": {
+    "intents": [
+      "book_appointment"
+    ],
+    "route": "human",
+    "queue": "bookings",
+    "priority": "P3",
+    "must_flags": [],
+    "note": "Hindi script; 'parso' = day after tomorrow, after 6pm.",
+    "acceptable_priorities": [
+      "P3",
+      "P2"
+    ]
+  },
+  "HO-010": {
+    "intents": [
+      "refund_request"
+    ],
+    "route": "human",
+    "queue": "trust_safety",
+    "priority": "P2",
+    "must_flags": [
+      "suspected_injection"
+    ],
+    "note": "Injection in Hinglish: tests non-English detection."
+  },
+  "HO-011": {
+    "intents": [
+      "booking_question",
+      "travel_documents_question"
+    ],
+    "route": "human",
+    "queue": "consultants",
+    "priority": "P3",
+    "must_flags": [],
+    "note": "Passport-validity advice is expert (T3)."
+  },
+  "HO-012": {
+    "intents": [
+      "positive_feedback"
+    ],
+    "route": "auto",
+    "queue": "support",
+    "priority": "P3",
+    "must_flags": [],
+    "note": ""
+  },
+  "HO-013": {
+    "intents": [
+      "refund_request"
+    ],
+    "route": "human",
+    "queue": "billing",
+    "priority": "P3",
+    "must_flags": [],
+    "note": "One word, no order ID, no timestamp: money, so human."
+  },
+  "HO-014": {
+    "intents": [
+      "travel_disruption"
+    ],
+    "route": "human",
+    "queue": "emergency_desk",
+    "priority": "P1",
+    "must_flags": [
+      "urgent"
+    ],
+    "note": "Medical emergency abroad; the word 'urgent' never appears."
+  },
+  "HO-015": {
+    "intents": [
+      "membership_question",
+      "book_appointment"
+    ],
+    "route": "human",
+    "queue": "bookings",
+    "priority": "P3",
+    "must_flags": [],
+    "note": "Booking for the daughter is T2."
+  },
+  "HO-016": {
+    "intents": [
+      "supplier_offer"
+    ],
+    "route": "auto",
+    "queue": "procurement",
+    "priority": "P3",
+    "must_flags": [],
+    "note": "They are selling to us: not a vendor invoice, not wholesale."
+  },
+  "HO-017": {
+    "intents": [
+      "booking_change"
+    ],
+    "route": "human",
+    "queue": "consultants",
+    "priority": "P2",
+    "must_flags": [],
+    "note": "Flight on Monday; fees involved (T3).",
+    "acceptable_priorities": [
+      "P2",
+      "P3"
+    ]
+  },
+  "HO-018": {
+    "intents": [
+      "complaint"
+    ],
+    "route": "human",
+    "queue": "support",
+    "priority": "P3",
+    "must_flags": [],
+    "note": "Checkout price looks wrong: must NOT get the price template."
+  },
+  "HO-019": {
+    "intents": [
+      "reschedule_appointment",
+      "service_or_price_question"
+    ],
+    "route": "human",
+    "queue": "bookings",
+    "priority": "P2",
+    "must_flags": [],
+    "note": "Change stylist for tomorrow's slot + price for balayage and trim.",
+    "acceptable_priorities": [
+      "P2",
+      "P1"
+    ]
+  },
+  "HO-020": {
+    "intents": [
+      "new_trip_inquiry"
+    ],
+    "route": "human",
+    "queue": "consultants",
+    "priority": "P3",
+    "must_flags": [],
+    "note": "High-value sales lead for a consultant."
+  }
+}

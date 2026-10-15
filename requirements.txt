@@ -1,0 +1,2 @@
+openai>=1.40          # client for OpenRouter (OpenAI-compatible API)
+python-dotenv>=1.0    # reads settings from a local .env file

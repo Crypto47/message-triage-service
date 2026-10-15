@@ -1,0 +1,67 @@
+{
+  "_about": "The candidate's own answers for the final set, written before any run and without AI review. Converted to this format word for word: intent names -> intents, flag names -> must_flags, 'human' -> route human, a tier -> route by policy (T0/T1 auto, T2/T3 human). Fields the candidate did not give (queue, priority) are not scored. FN-006 was 'NA' (no answer) and is not scored.",
+  "_original_ids": "FN-001..FN-010 were HO-001..HO-010 in the candidate's file; renamed to avoid clashing with the held-out set.",
+  "FN-001": {
+    "original_answer": "order_status,t1",
+    "intents": [
+      "order_status"
+    ],
+    "route": "auto"
+  },
+  "FN-002": {
+    "original_answer": "reschedule_appointment,t2",
+    "intents": [
+      "reschedule_appointment"
+    ],
+    "route": "human"
+  },
+  "FN-003": {
+    "original_answer": "t3,health_or_safety_question",
+    "intents": [
+      "health_or_safety_question"
+    ],
+    "route": "human"
+  },
+  "FN-004": {
+    "original_answer": "urgent,human",
+    "must_flags": [
+      "urgent"
+    ],
+    "route": "human"
+  },
+  "FN-005": {
+    "original_answer": "repeat_contact,human",
+    "must_flags": [
+      "repeat_contact"
+    ],
+    "route": "human"
+  },
+  "FN-007": {
+    "original_answer": "t0,business_info",
+    "intents": [
+      "business_info"
+    ],
+    "route": "auto"
+  },
+  "FN-008": {
+    "original_answer": "suspected_injection,human",
+    "must_flags": [
+      "suspected_injection"
+    ],
+    "route": "human"
+  },
+  "FN-009": {
+    "original_answer": "needs_context,human",
+    "must_flags": [
+      "needs_context"
+    ],
+    "route": "human"
+  },
+  "FN-010": {
+    "original_answer": "t0,positive_feedback",
+    "intents": [
+      "positive_feedback"
+    ],
+    "route": "auto"
+  }
+}
